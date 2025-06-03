@@ -3,80 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <title>AI Resume Enhancer</title>
-    <style>
-        body {
-            font-family: "Segoe UI", "Helvetica", sans-serif;
-            background-color: #f8f9fa;
-            padding: 40px;
-            max-width: 800px;
-            margin: auto;
-        }
-
-        h1 {
-            color: #343a40;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        label {
-            font-weight: bold;
-            display: block;
-            margin-top: 20px;
-            margin-bottom: 5px;
-        }
-
-        input[type="text"],
-        textarea {
-            width: 100%;
-            padding: 10px;
-            font-size: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            resize: vertical;
-        }
-
-        button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 1rem;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        .result-box {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            padding: 20px;
-            margin-top: 30px;
-            border-radius: 4px;
-            white-space: pre-wrap;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>AI Resume Enhancer</h1>
-    <form method="POST">
-        <label for="job">Target Position:</label>
-        <input type="text" name="job" placeholder="e.g., Backend Developer Intern">
+<body class="bg-light">
 
-        <label for="resume">Resume Content:</label>
-        <textarea name="resume" rows="12" placeholder="Paste your resume content here..."></textarea>
-
-        <button type="submit">Enhance Resume</button>
-    </form>
-
-    {% if result %}
-        <div class="result-box">
-            <h2>Optimized Resume:</h2>
-            {{ result }}
+    <!-- Header -->
+    <div class="container py-5">
+        <div class="text-center mb-4">
+            <h1 class="fw-bold text-primary">AI Resume Enhancer</h1>
+            <p class="lead text-muted">Generate a polished resume tailored to your target role using AI</p>
         </div>
-    {% endif %}
+
+        <!-- Form -->
+        <form method="POST" class="bg-white p-4 rounded shadow-sm">
+            <div class="mb-3">
+                <label for="job" class="form-label">Target Position:</label>
+                <input type="text" class="form-control" name="job" placeholder="e.g., Backend Developer Intern">
+            </div>
+
+            <div class="mb-3">
+                <label for="resume" class="form-label">Resume Content:</label>
+                <textarea class="form-control" name="resume" rows="8" placeholder="Paste your resume content here..."></textarea>
+            </div>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary btn-lg">✨ Enhance Resume</button>
+            </div>
+        </form>
+
+        <!-- Result -->
+        {% if result %}
+        <div class="card mt-5">
+            <div class="card-header bg-success text-white">
+                Optimized Resume
+            </div>
+            <div class="card-body">
+                <pre class="mb-0">{{ result }}</pre>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center text-muted py-4 small">
+        Built with ❤️ by <a href="https://github.com/zchen1" target="_blank">zchen1</a>
+    </footer>
+
 </body>
 </html>
